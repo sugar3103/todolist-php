@@ -1,9 +1,11 @@
 <?php
     // connect to the database
-    include './connect/index.php';
+    include '../connect/index.php';
+    include '../header/index.php';
 ?>
 
 <?php
+    // INSERT NEW data to db
     if (isset($_POST['submit'])) {
         $task = $_POST['task'];
         $assign = $_POST['assign'];
@@ -16,40 +18,10 @@
         }
     }
 
-    // delete task
-    if (isset($_GET['del_task'])) {
-        $id = $_GET['del_task'];
-        mysqli_query($db, "DELETE FROM tasks WHERE id=$id");
-        header('location: index.php');
-    }
-    // edit task
-    if (isset($_GET['edit_task'])) {
-        $id = $_GET['edit_task'];
-        // mysqli_query($db, "DELETE FROM tasks WHERE id=$id");
-        header('location: index.php');
-    }
-
-    $tasks = mysqli_query($db, "SELECT * FROM tasks")
-    
+    $tasks = mysqli_query($db, "SELECT * FROM tasks") 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
-    <title>TodoList Application with PHP and MySQL</title>
-</head>
 <body>
     <header>
-        <?php 
-            include './header/index.php'
-        ?>
         <div class="heading">
             <h2>Sugar Todo List Application with PHP and MySQL<h2>
         </div>
@@ -101,11 +73,9 @@
             </div>
         </div>
 
-
-        
-        <form method="POST" action="index.php">
-            <input type="text" name="search" class="task_input">
-            <button type="submit" class="add_btn" name="submit">Tìm kiếm</button>
+        <form action="/todolist-php/search/index.php">
+            <input type="text" class="task_input" value="Tìm kiếm trực tiếp ở đây vẫn chưa hoạt động do chỉ có thể get 1 POST mỗi trang, phải chuyển sang trang khác ------->">
+            <button type="submit" class="add_btn">Tới trang tìm kiếm</button>
         </form>
         <table>
             <thead>
@@ -128,7 +98,7 @@
                         <td class="task"><?php echo $row['task']; ?></td>
                         <td class="task"><?php echo $row['assign']; ?></td>
                         <td class="task"><?php echo $row['email']; ?></td>
-                        <td class="task"><input type="checkbox" class="task_input"></td>
+                        <td class="task"><input type="checkbox" class="task_input task_checkbox"></td>
                         <td class="delete">
                             <a href="/todolist-php/edit/index.php?id=<?php echo $row['id'] ?>">Edit</a>
                         </td>
@@ -143,7 +113,7 @@
         </table>
     </section>
     <?php 
-        include './footer/index.php'
+        include '../footer/index.php'
     ?>
 </body>
 </html>

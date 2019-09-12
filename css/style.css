@@ -5,12 +5,12 @@ $background: #FFF8DC; */
 }
 
 body{
-    background: url('./tiki.jpg') no-repeat;
+    background: url('../tiki.jpg') no-repeat;
     background-size: cover;
 }
 
 .heading {
-    width: 50%;
+    width: 100%;
     margin: 30px auto;
     text-align: center;
     color: blue;
@@ -18,36 +18,36 @@ body{
     border-radius: 20px;
     background: inherit;
 }
+
 .modal-open-box {
     margin-left: 40% !important;
     background: #1e87f0 !important;
 }
+
 form {
     width: 90%;
-    border-radius: 5px;
     padding: 5px 0 5px 30px;
     margin: 30px auto;
     background: inherit;
 }
 
-form p {
-    color: blue;
-    margin: 0px;
-}
 
 .task_input {
     width: 80%;
-    height: 45px;
+    padding: 5px;
     margin: 5px 0 5px 0;
 }
 
+.task_checkbox {
+    height: 30px;
+}
+
 .add_btn {
-    height: 39px;
     background: #1e87f0;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -63,7 +63,7 @@ tr{
 
 th{
     font-size: 19px;
-    color: #6B8E23
+    color: blue
 }
 
 th, td {

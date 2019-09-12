@@ -1,3 +1,5 @@
 <footer>
-    <p style="text-align: center">This is Footer</p>
+    <p style="
+        text-align: center;
+        text-decoration: underline">This is Footer</p>
 </footer>
