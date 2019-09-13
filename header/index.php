@@ -10,11 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
-    <title>TodoList Application with PHP and MySQL</title>
+    <title>Sugar TodoList Application with PHP and MySQL</title>
 </head>
 <section class="main_page">
-    <a href="/todolist-php/main/index.php" style="color: white">
-        <img src="../favicon/apple-touch-icon.png" width="50px">
+    <a href="/todolist-php/main/index.php" style="color: white; margin: 10px 0 10px 50px">
+        <img src="../favicon/apple-touch-icon.png" width="80px">
         Đi tới trang chủ
     </a>
 </section>

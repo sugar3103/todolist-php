@@ -18,6 +18,12 @@
         }
     }
 
+    // DELETE data in db
+    if (isset($_GET['del_task'])) {
+        $id = $_GET['del_task'];
+        mysqli_query($db, "DELETE FROM tasks WHERE id=$id");
+        header('location: index.php');
+    }
     $tasks = mysqli_query($db, "SELECT * FROM tasks") 
 ?>
 <body>
@@ -74,7 +80,7 @@
         </div>
 
         <form action="/todolist-php/search/index.php">
-            <input type="text" class="task_input" value="Tìm kiếm trực tiếp ở đây vẫn chưa hoạt động do chỉ có thể get 1 POST mỗi trang, phải chuyển sang trang khác ------->">
+            <input type="text" class="task_input" value="Tìm kiếm trực tiếp ở đây vẫn chưa hoạt động, phải chuyển sang trang khác ------->">
             <button type="submit" class="add_btn">Tới trang tìm kiếm</button>
         </form>
         <table>
@@ -103,7 +109,30 @@
                             <a href="/todolist-php/edit/index.php?id=<?php echo $row['id'] ?>">Edit</a>
                         </td>
                         <td class="delete">
-                            <a href="index.php?del_task=<?php echo $row['id'] ?>">x</a>
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                data-toggle="modal" data-target="#<?php echo $row['id']; ?>Modal">X</button>
+                                   <!-- Modal -->
+                            <div class="modal fade" id="<?php echo $row['id']; ?>Modal" role="dialog">
+                                <div class="modal-dialog">
+    
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Bạn có chắc chắn muốn xoá task có ID 
+                                                <?php echo $row['id']; ?> ?</h4>
+                                        </div>
+                                        <!-- <div class="modal-body">
+                                           
+                                        </div> -->
+                                        <div class="modal-footer">
+                                            <a href="index.php?del_task=<?php echo $row['id']; ?>">
+                                                Xoá ID <?php echo $row['id']; ?></a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 <?php

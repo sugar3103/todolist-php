@@ -28,7 +28,7 @@
         <div class="heading">
             <h2>Sugar Edit TodoList with id = <?php echo $id?><h2>
             <?php while ($row = mysqli_fetch_array($task)) { ?>
-                <form method="POST" action="../../todolist-php/index.php">
+                <form method="POST" action="/todolist-php/main/index.php">
                     <input type="text" 
                         name="task" 
                         class="task_input" 
